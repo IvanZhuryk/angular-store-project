@@ -10,9 +10,14 @@
     border-radius: 15px;
 }
 .product-title {
-    width: max-content;
+    width:200px;
+    height: 19px;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden ;    
+}
+.product-title:hover{
+    overflow:visible;
 }
 .product-buy {
     display: flex;

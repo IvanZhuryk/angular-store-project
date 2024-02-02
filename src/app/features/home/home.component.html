@@ -1,1 +1,3 @@
-<app-product-item></app-product-item>
+@for(item of items; track item.id){
+<app-product-item [Item]="item"></app-product-item>
+}
