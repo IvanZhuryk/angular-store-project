@@ -1,9 +1,13 @@
 <header class="header">
   <div class="nav">
-    <div class="nav-title">MOCK STORE</div>
+    <a [routerLink]="['/home']"><div class="nav-title">MOCK STORE</div></a>
     <div class="nav-group">
       <mat-icon>person</mat-icon>
-      <button class="nav-cart-button" matBadge="3" matBadgeColor="warn">
+      <button
+        class="nav-cart-button"
+        [matBadge]="items.length ? items.length : 0"
+        matBadgeColor="warn"
+      >
         <mat-icon>shopping_cart</mat-icon>
       </button>
     </div>

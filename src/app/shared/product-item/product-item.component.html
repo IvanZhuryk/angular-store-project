@@ -1,12 +1,8 @@
 <div class="product">
-  <img
-    class="product-image"
-    src="https://placehold.co/200x300"
-    alt="product-image"
-  />
+  <img class="product-image" [src]="Item.image" alt="product-image" />
   <p class="product-title">{{ Item.title }}</p>
   <div class="product-buy">
     <span>{{ Item.price | currency }}</span>
-    <app-button></app-button>
+    <app-button (click)="addProductToCart(Item)"></app-button>
   </div>
 </div>

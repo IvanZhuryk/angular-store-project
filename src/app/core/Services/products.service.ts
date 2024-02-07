@@ -9,8 +9,11 @@ import { Observable } from 'rxjs';
 export class ProductsService {
   http: HttpClient = inject(HttpClient);
   GetProducts(): Observable<ProductModel[]> {
+    return this.http.get<ProductModel[]>('https://fakestoreapi.com/products');
+  }
+  GetProductsByCategoty(categoty: string): Observable<ProductModel[]> {
     return this.http.get<ProductModel[]>(
-      'https://api.escuelajs.co/api/v1/products'
+      `https://fakestoreapi.com/products/category/${categoty}`
     );
   }
 }

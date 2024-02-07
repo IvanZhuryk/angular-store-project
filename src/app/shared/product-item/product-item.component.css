@@ -3,18 +3,18 @@
     flex-direction: column;
     align-items: center;
     padding: 5px;
-    width: 210px;
-    height: 400px;
+    width: 310px;
+    height: 430px;
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 15px;
 }
 .product-title {
-    width:200px;
-    height: 19px;
+    width:300px;
+    height: 50px;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden ;    
+     ;    
 }
 .product-title:hover{
     overflow:visible;
@@ -27,4 +27,6 @@
 }
 .product-image {
     border-radius: 15px;
+    height:300px;
+    width:200px
 }

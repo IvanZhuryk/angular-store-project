@@ -2,10 +2,11 @@ export class ProductModel {
   id: number;
   title: string;
   price: number;
-  category: {
-    id: number;
-    name: string;
-    image: string;
+  category: string;
+  rating: {
+    rate: number;
+    count: number;
   };
-  image: string[];
+  image: string;
+  count?: number;
 }
