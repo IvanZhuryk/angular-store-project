@@ -17,7 +17,9 @@ export class HeaderComponent implements OnInit {
   items: ProductModel[] | undefined;
   cartservice: CartService = inject(CartService);
   ngOnInit() {
-    this.items = this.cartservice.cartItems;
+    this.cartservice.cartDataObs$.subscribe((data) => {
+      this.items = data.cartItems;
+    });
     console.log(this.items);
   }
 }
