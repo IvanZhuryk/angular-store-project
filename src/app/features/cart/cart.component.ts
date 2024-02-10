@@ -29,4 +29,7 @@ export class CartComponent implements OnInit {
     this._cart.removeItem(item);
     this._cart.updateCart(item.id, item.count);
   }
+  clearCart() {
+    this._cart.clearCart();
+  }
 }

@@ -14,6 +14,14 @@ export class CartService {
     if (localCartData) this.cartData = localCartData;
     this.cartDataObs$.next(this.cartData);
   }
+  getCartTotal() {
+    let totalSum = 0;
+    this.cartData.cartItems.forEach(
+      (prod) => (totalSum += prod.price * prod.count)
+    );
+
+    return totalSum;
+  }
   addItem(item: ProductModel) {
     const findItem = this.cartData.cartItems.find((obj) => obj.id === item.id);
     if (findItem) {
@@ -22,15 +30,8 @@ export class CartService {
       this.cartData.cartItems.push({ ...item, count: 1 });
     }
     this.cartData.total = this.getCartTotal();
+    this.cartDataObs$.next({ ...this.cartData });
     localStorage.setItem('cart', JSON.stringify(this.cartData));
-  }
-  getCartTotal() {
-    let totalSum = 0;
-    this.cartData.cartItems.forEach(
-      (prod) => (totalSum += prod.price * prod.count)
-    );
-
-    return totalSum;
   }
   updateCart(id: number, count: number): void {
     let updatedProducts = [...this.cartData.cartItems];
@@ -62,6 +63,14 @@ export class CartService {
     );
     this.cartData.cartItems = updatedProducts;
     this.cartData.total = this.getCartTotal();
+    this.cartDataObs$.next({ ...this.cartData });
+    localStorage.setItem('cart', JSON.stringify(this.cartData));
+  }
+  clearCart(): void {
+    this.cartData = {
+      cartItems: [],
+      total: 0,
+    };
     this.cartDataObs$.next({ ...this.cartData });
     localStorage.setItem('cart', JSON.stringify(this.cartData));
   }
