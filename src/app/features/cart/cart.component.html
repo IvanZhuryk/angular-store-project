@@ -3,41 +3,37 @@
   <a [routerLink]="['/home']">Continue shopping</a>
 </div>
 @if(items.length){
-<table>
-  <thead>
-    <tr>
-      <th>PRODUCT</th>
-      <th>PRICE</th>
-      <th>QUONTITY</th>
-      <th>TOTAL</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for(item of items; track item.id){
-    <tr>
-      <th>
-        <div class="cart-product">
-          <img class="cart-image" [src]="item.image" />
-          <span>{{ item.title }}</span>
-        </div>
-      </th>
-      <th>{{ item.price | currency }}</th>
-      <th>
-        <div class="cart-quontity">
-          <button (click)="plusOneItem(item)" class="cart-button">+</button>
-          <span>{{ item.count }}</span>
-          <button (click)="minusOneItem(item)" class="cart-button">-</button>
-        </div>
-      </th>
-      <th class="item-price-total">{{ item.price * item.count | currency }}</th>
-    </tr>
-    }
-  </tbody>
-</table>
+<div class="list-header">
+  <div class="w-900">PRODUCT</div>
+  <div class="price">PRICE</div>
+  <div>QUONTITY</div>
+  <div class="total">TOTAL</div>
+</div>
 <hr />
-<button (click)="clearCart()" class="clear-button">Clear cart</button>
-<div class="cart-total">
-  <span class="cart-total-title">Subtotal:</span>
-  <span>{{ total | currency }}</span>
+@for(item of items; track item.id){
+<div class="list-head">
+  <div class="cart-product">
+    <img class="cart-image" [src]="item.image" />
+    <p class="cart-title">{{ item.title }}</p>
+  </div>
+  <div class="price">
+    {{ item.price | currency }}
+  </div>
+  <div class="cart-quontity">
+    <button (click)="plusOneItem(item)" class="cart-button">+</button>
+    <span>{{ item.count }}</span>
+    <button (click)="minusOneItem(item)" class="cart-button">-</button>
+  </div>
+  <div class="total">{{ item.price * item.count | currency }}</div>
+</div>
+
+}
+<hr />
+<div class="table-footer">
+  <button (click)="clearCart()" class="clear-button">Clear cart</button>
+  <div class="cart-total">
+    <span class="cart-total-title">Subtotal:</span>
+    <span>{{ total | currency }}</span>
+  </div>
 </div>
 }

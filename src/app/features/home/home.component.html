@@ -1,9 +1,11 @@
-@for(category of categories; track category.id){
-<app-sort-btn
-  (click)="sortItems(category.category)"
-  [Category]="category"
-></app-sort-btn>
-}
+<div class="categories">
+  @for(category of categories; track category.id){
+  <app-sort-btn
+    (click)="sortItems(category.category)"
+    [Category]="category"
+  ></app-sort-btn>
+  }
+</div>
 
 <section class="products-section">
   @for(item of items; track item.id){

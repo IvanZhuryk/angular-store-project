@@ -3,3 +3,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.categories {
+    display: flex;
+    overflow-x: scroll;
+    @media screen and (min-width:769px) {
+        overflow-x:auto;
+    }
+    
+    
+}
